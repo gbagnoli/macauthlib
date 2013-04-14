@@ -197,7 +197,7 @@ def normalize_request_object(func):
         # A requests.Request object?
         elif requests and isinstance(orig_request, requests.Request):
             # Copy over only the details needed for the signature.
-            request = webob.Request.blank(orig_request.full_url)
+            request = webob.Request.blank(orig_request.url)
             request.method = orig_request.method
             request.headers.update(iteritems(orig_request.headers))
         # A WSGI environ dict?
